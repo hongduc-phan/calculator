@@ -4,36 +4,57 @@ import Result from "./Result";
 
 class Content extends Component {
 
-  state = {
+    state = {
     result: 0,
-    name:''
-  }
-  constructor(props) {
+    name:'demo'
+    }
+
+    constructor(props) {
           super(props);
-      }
+    }
 
- handleOnClick = (event) =>{
-   const target = event.target;
-       const value  = target.value;
+    handleClick = (value) =>{
+        this.setState({
+            name: value
+        })
+    }
 
-       this.setState({
-           name: value
-       });
-  }
-
-  render() {
+    render() {
     console.log(this.state.name)
 
     return (
       <React.Fragment>
         <Result result = {this.state.name}/>
 
-        <button value = '8' onClick = {this.handleOnClick} >8 </button>
-
-        <Button value = '2' onClick = {this.handleOnClick}> 2</Button>
-        <Button  value = '3' onClick = {this.handleOnClick}> 3</Button>
-        <Button  value = '5' onClick = {this.handleOnClick}> 5</Button>
-        <Button  value = '+' onClick = {this.handleOnClick}> + </Button>
+          <div>
+              <Button name="AC" onClick={this.handleClick} />
+              <Button name="+/-" onClick={this.handleClick} />
+              <Button name="%" onClick={this.handleClick} />
+              <Button name="÷" onClick={this.handleClick}  />
+          </div>
+          <div>
+              <Button name="7" onClick={this.handleClick} />
+              <Button name="8" onClick={this.handleClick} />
+              <Button name="9" onClick={this.handleClick} />
+              <Button name="x" onClick={this.handleClick}  />
+          </div>
+          <div>
+              <Button name="4" onClick={this.handleClick} />
+              <Button name="5" onClick={this.handleClick} />
+              <Button name="6" onClick={this.handleClick} />
+              <Button name="-" onClick={this.handleClick}  />
+          </div>
+          <div>
+              <Button name="1" onClick={this.handleClick} />
+              <Button name="2" onClick={this.handleClick} />
+              <Button name="3" onClick={this.handleClick} />
+              <Button name="+" onClick={this.handleClick}  />
+          </div>
+          <div>
+              <Button name="0" onClick={this.handleClick}  />
+              <Button name="." onClick={this.handleClick} />
+              <Button name="=" onClick={this.handleClick}  />
+          </div>
       </React.Fragment>
     );
   }

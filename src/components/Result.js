@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 
 const Result = props => {
 
@@ -10,4 +11,7 @@ const Result = props => {
     )
 };
 
+Result.propTypes = {
+    result: PropTypes.string,
+}
 export default Result;
