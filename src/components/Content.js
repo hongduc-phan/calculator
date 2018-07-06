@@ -18,6 +18,16 @@ class Content extends Component {
           super(props);
     }
 
+    componentDidMount() {
+        if (this.state.name === undefined || isNaN(this.state.result)) {
+            this.setState ({
+                name:'',
+                result: 0
+            })
+        }
+        console.log('test')
+    }
+
     handleClick = (value) => {
         if( isOperator(value)) {
             this.setState({
@@ -30,10 +40,24 @@ class Content extends Component {
                 checkIsNumber:true
             });
         }
+        if (isNaN(this.state.result)) {
+            this.setState ({
+                result: 0
+            })
+
+        }
+
+        if((this.state.name) === undefined ) {
+            this.setState({
+                name: 'haha'
+            })
+            console.log('test',this.state.name)
+        }
+
 
         let name = this.state.name + display(value).toString()
         if (name === '0'){
-            name =''
+            name = ''
         }
         this.setState({
             name: name
@@ -44,12 +68,15 @@ class Content extends Component {
     handleEqual = () => {
 
         this.equalActive();
+
+
     }
+
     equalActive = () => {
         const temp = calC(this.state.name, this.state.checkIsNumber);
         let temp2 = parseFloat(temp)
         this.setState({
-            name: temp2,
+            name: temp,
             checkIsNumber: true,
             result: temp2
         });
@@ -70,21 +97,32 @@ class Content extends Component {
     activeToggle = () => {
         let isnum = /^\d+$/.test(this.state.name);
 
-        if( !isnum) {
-            this.setState({
-                name: '-' + this.state.name,
-            });
-        }
-        else {
-            let result = -1 * eval(this.state.name)
-            let name = result.toString();
+        // if( isnum) {
+        //     this.setState({
+        //         name: '-' + this.state.name,
+        //     });
+        // }
+        // else {
+        //     let result = -1 * eval(this.state.name)
+        //     let name = result.toString();
+        //
+        //     this.setState({
+        //         plusMinus: !this.state.plusMinus,
+        //         result:  (result),
+        //         name: name,
+        //     });
+        //     console.log('check')
+        // }
 
-            this.setState({
-                plusMinus: !this.state.plusMinus,
-                result:  (result),
-                name: name,
-            });
-        }
+        let result = -1 * eval(this.state.name)
+        let name = result.toString();
+
+        this.setState({
+            plusMinus: !this.state.plusMinus,
+            result:  (result),
+            name: name,
+        });
+        console.log('check')
     }
 
 
