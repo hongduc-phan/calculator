@@ -12,6 +12,6 @@ const Result = props => {
 };
 
 Result.propTypes = {
-    result: PropTypes.string,
+    result: PropTypes.number,
 }
 export default Result;

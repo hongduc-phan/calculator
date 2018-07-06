@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 const Button = props => {
 
     const handleOnClick = () =>{
-        props.onClick(props.name);
+        if (props.name ==='=')
+            props.onClickEqual();
+        else if (props.name === '+/-') {
+            props.onClickToggle();
+        }
+        else
+            props.onClick(props.name);
+
     }
 
     return (
