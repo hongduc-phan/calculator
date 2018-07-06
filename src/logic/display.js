@@ -9,21 +9,29 @@ export default function  display( nameBtn) {
         {
             return '*';
         }
-        if ( nameBtn === '+')
+        else if ( nameBtn === '+')
         {
             return '+';
         }
-        if ( nameBtn === '-')
+        else  if ( nameBtn === '-')
         {
             return '-';
         }
-        if ( nameBtn === '÷')
+        else  if ( nameBtn === '÷')
         {
             return '/';
         }
-        if ( nameBtn === '%')
+        else  if ( nameBtn === '%')
         {
             return '%';
+        }
+        else  if ( nameBtn === 'AC')
+        {
+            return 'AC';
+        }
+        else  if ( nameBtn === '.')
+        {
+            return '';
         }
 
         return '';

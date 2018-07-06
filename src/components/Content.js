@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from "./Button";
 import Result from "./Result";
 import display from "../logic/display";
-import {resultCalc } from "../logic/result";
 import {calC,isOperator} from "../logic/calc";
 
 class Content extends Component {
@@ -83,36 +82,11 @@ class Content extends Component {
     }
 
     handleToggle = () => {
-        // this.setState((prevState, props) => {
-        //     return {
-        //         plusMinus: !prevState.plusMinus,
-        //         result: -1 * eval(prevState.name),
-        //         name: this.state.result.toString(),
-        //     };
-        // });
 
         this.activeToggle();
     }
 
     activeToggle = () => {
-        let isnum = /^\d+$/.test(this.state.name);
-
-        // if( isnum) {
-        //     this.setState({
-        //         name: '-' + this.state.name,
-        //     });
-        // }
-        // else {
-        //     let result = -1 * eval(this.state.name)
-        //     let name = result.toString();
-        //
-        //     this.setState({
-        //         plusMinus: !this.state.plusMinus,
-        //         result:  (result),
-        //         name: name,
-        //     });
-        //     console.log('check')
-        // }
 
         let result = -1 * eval(this.state.name)
         let name = result.toString();
@@ -125,15 +99,26 @@ class Content extends Component {
         console.log('check')
     }
 
+    handleClickAC = () => {
+        this.setState({
+            result:  0,
+            name: '',
+        });
+    }
+
+    handleClickFloating = () => {
+        this.setState((prevState, props) => {
+                return {
+                    result: prevState.result * 0.1,
+                    name: (prevState.result*0.1).toString()
+                };
+            });
+    }
 
     render() {
         console.log('name',this.state.name)
         console.log('result',this.state.result)
-    // let result = this.state.name;
-    //     if (this.state.checkIsNumber ) {
-    //         let resultFloat = eval(result);
-    //         console.log(resultFloat)
-    //     }
+
 
 
 
@@ -142,7 +127,7 @@ class Content extends Component {
         <Result result = {this.state.result}/>
 
           <div>
-              <Button name="AC" onClick={this.handleClick} />
+              <Button name="AC" handleClickAC={this.handleClickAC} />
               <Button name="+/-" onClickToggle={this.handleToggle} />
               <Button name="%" onClick={this.handleClick} />
               <Button name="÷" onClick={this.handleClick}  />
@@ -167,7 +152,7 @@ class Content extends Component {
           </div>
           <div>
               <Button name="0" onClick={this.handleClick}  />
-              <Button name="." onClick={this.handleClick} />
+              <Button name="." handleClickFloating={this.handleClickFloating} />
               <Button name="=" onClickEqual={this.handleEqual}  />
           </div>
       </React.Fragment>

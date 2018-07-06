@@ -4,14 +4,32 @@ import PropTypes from "prop-types";
 const Button = props => {
 
     const handleOnClick = () =>{
-        if (props.name ==='=')
-            props.onClickEqual();
-        else if (props.name === '+/-') {
-            props.onClickToggle();
-        }
-        else
-            props.onClick(props.name);
+        // if (props.name ==='=')
+        //     props.onClickEqual();
+        // else if (props.name === '+/-') {
+        //     props.onClickToggle();
+        // }
+        //
+        // else
+        //     props.onClick(props.name);
 
+        switch (props.name) {
+            case '=':
+                props.onClickEqual();
+                break;
+            case '+/-':
+                props.onClickToggle();
+                break;
+            case 'AC':
+                props.handleClickAC();
+                break;
+            case '.':
+                props.handleClickFloating();
+                break;
+            default:
+                props.onClick(props.name);
+                break;
+        }
     }
 
     return (
