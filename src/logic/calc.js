@@ -1,11 +1,22 @@
 
 
-export  function  calC(result, checkIsNumber) {
+export  function  returnNamebtn(name) {
 
-    if (checkIsNumber ) {
-        let resultFloat = eval(result);
-        let temp = resultFloat.toString()
-        return temp;
+    switch (name) {
+        case '=':
+
+            return ;
+        case '+/-':
+
+            return (-1);
+        case 'AC':
+
+            return '';
+        case '.':
+
+            return (0.1);
+        default:
+            return name;
     }
 }
 

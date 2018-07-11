@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 const Result = props => {
 
     let {result} = props;
+    result = eval(props.handleResult());
+    if (result === undefined) {
+        result = props.result;
+    }
+
+    console.log(result)
     return (
       <div className = "Result">
           {result}
