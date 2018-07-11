@@ -40,7 +40,9 @@ class Content extends Component {
                     console.log(this.state.result)
                 }
 
-                else if (name === '=') {
+                else if (name === '='
+                    && this.state.list[this.state.list.length - 1].value !== '='
+                    && this.state.name !=='') {
                     const temp = [
                         {
                             name: 'number',
@@ -62,54 +64,60 @@ class Content extends Component {
                 }
 
                 else { // click = operator
-                    if (this.state.name) {
-                        const temp = [
-                            {
-                                name: 'number',
-                                value: this.state.name
-                            },
-                            {
-                                name: 'operator',
-                                value: name
+                    if (name !== '=') {
+                        if (name !== '=') {
+                            if (this.state.name ) {
+                                const temp = [
+                                    {
+                                        name: 'number',
+                                        value: this.state.name
+                                    },
+                                    {
+                                        name: 'operator',
+                                        value: name
+                                    }
+                                ];
+
+                                this.setState((prevState, props) => {
+                                    return {
+                                        list: prevState.list.concat(temp),
+                                    }
+                                });
+                                this.setState({
+                                    name: ''
+                                })
+
+                                alert('2')
                             }
-                        ];
 
-                        this.setState((prevState, props) => {
-                            return {
-                                list: prevState.list.concat(temp),
-                            }
-                        });
-                        this.setState({
-                            name: ''
-                        })
-
-                        alert('2')
-                    }
-
-                    else {
-
-
-
-                        this.setState((prevState, props) => {
-                            return {
-                                list: prevState.list.concat({
+                            else {
+                                let temp = this.state.list.splice(this.state.list -1,1);
+                                temp = temp.concat({
                                     name: 'operator',
                                     value: name
-                                }),
+                                })
+                                this.setState((prevState, props) => {
+                                    return {
+                                        list: temp
 
+                                    }
+
+                                });
+                                this.setState({
+                                    name:''
+                                })
+                                alert('3')
                             }
-
-                        });
-                        this.setState({
-                            name:''
-                        })
-                        alert('3')
+                        }
                     }
+
+
                 }
             }
 
+
             else { // last list = number
-                if (!isOperator(name)) { // click = number
+                if (!isOperator(name) && name !== '=') { // click = number
                     let addName = this.state.name + name.toString();
                     this.setState({
                         name: addName,
@@ -118,7 +126,7 @@ class Content extends Component {
                     alert('4')
                 }
                 else { // click = operator
-                    if (this.state.name) {
+                    if (this.state.name && name !== '=') {
                         let temp = [
                             {
                                 name: 'number',
@@ -162,7 +170,7 @@ class Content extends Component {
                 alert('7')
             }
             else { // click = operator
-                if (this.state.name) {
+                if (this.state.name && name !== '=') {
                     let temp = [
                         {
                             name: 'number',
@@ -180,18 +188,18 @@ class Content extends Component {
                     alert('8')
                 }
 
-                else {
-                    this.setState((prevState, props) => {
-                        return {
-                            list: prevState.list.concat({
-                                name: 'operator',
-                                value: name
-                            }),
-                        }
-
-                    });
-                    alert('9')
-                }
+                // else {
+                //     this.setState((prevState, props) => {
+                //         return {
+                //             list: prevState.list.concat({
+                //                 name: 'operator',
+                //                 value: name
+                //             }),
+                //         }
+                //
+                //     });
+                //     alert('9')
+                // }
             }
         }
     }
