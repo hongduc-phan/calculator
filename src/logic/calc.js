@@ -22,7 +22,7 @@ export  function  returnNamebtn(name) {
 
 export function isOperator(nameBtn) {
 
-    if (nameBtn === ("÷") || nameBtn === ("=") || nameBtn === ("+/-") || nameBtn === ( '-' ) || nameBtn === ( 'x' ) || nameBtn === ( '*' ) || nameBtn === ( '%' ) || nameBtn === ( '+' )  ) {
+    if (nameBtn === ("÷") || nameBtn === ("=") || nameBtn === ("+/-") || nameBtn === ( '-' ) || nameBtn === ( 'x' ) || nameBtn === ( '*' ) || nameBtn === ( '%' ) || nameBtn === ( '+' ) || nameBtn === ('/') ) {
         return  true;
     }
     return false;

@@ -4,17 +4,20 @@ import PropTypes from "prop-types";
 const Button = props => {
 
     const handleOnClick = () => {
-
-        if (props.name === 'x') {
-            props.onClick('*');
+        switch (props.name) {
+            case 'x':
+                props.onClick('*');
+                return ;
+            case '÷':
+                props.onClick('/');
+                return ;
+            case '.':
+                props.onClick('*0.1');
+                return ;
+            default:
+                props.onClick(props.name);
+                return ;
         }
-        else if (props.name === '÷') {
-            props.onClick('/');
-        }
-        else {
-            props.onClick(props.name);
-        }
-
 
     }
 
