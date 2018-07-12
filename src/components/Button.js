@@ -18,7 +18,10 @@ const Button = props => {
                 props.onClick('=');
                 return ;
             case 'AC':
-                props.onClickAC('AC');
+                props.onClickAC();
+                return ;
+            case 'CE':
+                props.onClickCE();
                 return ;
             default:
                 props.onClick(props.name);

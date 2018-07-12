@@ -17,7 +17,6 @@ class Content extends Component {
 
     handleOnClick = (name) => {
         let paraName = name;
-        console.log(paraName)
         this.addbtn2List(paraName);
 
     }
@@ -32,7 +31,6 @@ class Content extends Component {
                         name: addName,
                         result: parseFloat(addName)
                     })
-                    alert('1')
                     console.log(this.state.result)
                 }
 
@@ -93,7 +91,6 @@ class Content extends Component {
                                     name: ''
                                 })
 
-                                alert('2')
                             }
 
                             else {
@@ -115,7 +112,6 @@ class Content extends Component {
                                 this.setState({
                                     name:''
                                 })
-                                alert('3')
                             }
                         }
                     }
@@ -132,7 +128,6 @@ class Content extends Component {
                         name: addName,
                         result: parseFloat(addName)
                     })
-                    alert('4')
                 }
                 else { // click = operator
                     if (this.state.name && name !== '=') {
@@ -150,20 +145,21 @@ class Content extends Component {
                             list:temp,
                             name: ''
                         });
-                        alert('5')
                     }
 
                     else {
-                        this.setState((prevState, props) => {
-                            return {
-                                list: prevState.list.concat({
-                                    name: 'operator',
-                                    value: name
-                                }),
-                            }
+                        if (name !== '=') {
+                            this.setState((prevState, props) => {
+                                return {
+                                    list: prevState.list.concat({
+                                        name: 'operator',
+                                        value: name
+                                    }),
+                                }
 
-                        });
-                        alert('6')
+                            });
+                        }
+
                     }
                 }
             }
@@ -176,7 +172,6 @@ class Content extends Component {
                     name: addName,
                     result: parseFloat(addName)
                 })
-                alert('7')
             }
             else { // click = operator
                 if (this.state.name && name !== '=') {
@@ -194,7 +189,6 @@ class Content extends Component {
                         list:temp,
                         name: ''
                     });
-                    alert('8')
                 }
 
                 // else {
@@ -216,14 +210,11 @@ class Content extends Component {
     handleUpdateResult = () => {
         if (this.state.list.length > 0) {
             if (this.state.list[this.state.list.length-1].name === 'number') {
-                console.log(this.state.list)
                 const temp2 = [...this.state.list];
                 let temp3 = '';
                 temp2.forEach((item) => {
                     temp3 += item.value.toString();
                 })
-                console.log(typeof (temp3))
-                console.log( eval(temp3))
                 return eval(temp3)
             }
         }
@@ -254,7 +245,6 @@ class Content extends Component {
                     name: ''
                 }
             });
-            alert('1a')
         }
 
         else if (this.state.name && !isOperator(this.state.name) ) {
@@ -273,8 +263,6 @@ class Content extends Component {
                     name:''
                 }
             });
-
-            alert('1b')
         }
 
         else {
@@ -293,7 +281,6 @@ class Content extends Component {
                     name:''
                 }
             });
-            alert('1c')
         }
     }
 
@@ -305,8 +292,27 @@ class Content extends Component {
         })
     }
 
+    onClickCE = () => {
+        if (this.state.list.length > 0) {
+            let temp = this.state.list;
+            temp.pop();
+            this.setState({
+                name:'',
+                list: temp,
+            })
+        }
+
+        else {
+            this.setState({
+                name:'',
+                list: [],
+                result: 0
+            })
+        }
+
+    }
+
     render() {
-        console.log(this.state.result)
 
         return (
             <React.Fragment>
@@ -316,7 +322,7 @@ class Content extends Component {
                 <div>
                     <Button name="AC" onClickAC={this.onClickAC} />
                     <Button name="+/-" onClick={this.handleOnClick} />
-                    <Button name="%" onClick={this.handleOnClick} />
+                    <Button name="CE" onClickCE={this.onClickCE} />
                     <Button name="÷" onClick={this.handleOnClick}  />
                 </div>
                 <div>

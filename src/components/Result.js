@@ -9,7 +9,6 @@ const Result = props => {
         result = props.result;
     }
 
-    console.log(result)
     return (
       <div className = "Result">
           {result}
@@ -18,6 +17,6 @@ const Result = props => {
 };
 
 Result.propTypes = {
-    result: PropTypes.number,
+    //result: PropTypes.number,
 }
 export default Result;
