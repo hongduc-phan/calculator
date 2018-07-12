@@ -12,7 +12,10 @@ const Button = props => {
                 props.onClick('/');
                 return ;
             case '.':
-                props.onClick('*0.1');
+                props.onClickFloat();
+                return ;
+            case '=':
+                props.onClick('=');
                 return ;
             default:
                 props.onClick(props.name);

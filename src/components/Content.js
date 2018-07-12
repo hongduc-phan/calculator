@@ -19,7 +19,7 @@ class Content extends Component {
     handleOnClick = (name) => {
         let paraName = name;
         console.log(paraName)
-        this.addbtn2List(paraName)
+        this.addbtn2List(paraName);
 
     }
 
@@ -43,6 +43,16 @@ class Content extends Component {
                 else if (name === '='
                     && this.state.list[this.state.list.length - 1].value !== '='
                     && this.state.name !=='') {
+
+                    const temp2 = [...this.state.list];
+                    let temp3 = '';
+                    temp2.forEach((item) => {
+                        temp3 += item.value.toString();
+                    });
+
+                    temp3 += this.state.name
+                    let temp4 = eval(temp3);
+
                     const temp = [
                         {
                             name: 'number',
@@ -51,22 +61,22 @@ class Content extends Component {
                     ];
                     this.setState((prevState, props) => {
                         return {
-                            list: prevState.list.concat(temp)
+                            list: prevState.list.concat(temp),
+                            result: parseFloat(temp4)
                         }
                     });
+
+
+
                     this.setState({
-                        name:''
+                        name:'',
                     })
-
-                    alert('10')
-
-
                 }
 
                 else { // click = operator
                     if (name !== '=') {
                         if (name !== '=') {
-                            if (this.state.name ) {
+                            if (this.state.name ) { // add number via name = state.name
                                 const temp = [
                                     {
                                         name: 'number',
@@ -91,7 +101,11 @@ class Content extends Component {
                             }
 
                             else {
-                                let temp = this.state.list.splice(this.state.list -1,1);
+                                alert(this.state.list -1)
+                                let temp = this.state.list;
+                                //temp = temp.splice(this.state.list -1,1);
+                                temp.pop();
+                                console.log(temp)
                                 temp = temp.concat({
                                     name: 'operator',
                                     value: name
@@ -158,9 +172,9 @@ class Content extends Component {
                     }
                 }
             }
-         }
+        }
 
-         else { // list = empty
+        else { // list = empty
             if (!isOperator(name)) { // click = number
                 let addName = this.state.name + name.toString();
                 this.setState({
@@ -204,7 +218,7 @@ class Content extends Component {
         }
     }
 
-    handleUpdateResult = (result) => {
+    handleUpdateResult = () => {
         if (this.state.list.length > 0) {
             if (this.state.list[this.state.list.length-1].name === 'number') {
                 console.log(this.state.list)
@@ -215,11 +229,77 @@ class Content extends Component {
                 })
                 console.log(typeof (temp3))
                 console.log( eval(temp3))
-                result =  eval(temp3);
-                return result
+                return eval(temp3)
             }
         }
+    }
 
+    handleOnClickFloat = () => {
+        this.setState((prevState) =>{
+            return {
+                result: prevState.result *0.1,
+            }
+        })
+
+        if (this.state.list.length > 0) {
+            const temp = [
+                {
+                    name: 'operator',
+                    value: '*'
+                },
+                {
+                    name: 'number',
+                    value: 0.1
+                },
+            ];
+
+            this.setState((prevState, props) => {
+                return {
+                    list: prevState.list.concat(temp),
+                    name: ''
+                }
+            });
+            alert('1a')
+        }
+
+        else if (this.state.name && !isOperator(this.state.name) ) {
+            const temp = [
+
+                {
+                    name: 'number',
+                    value: parseFloat(this.state.name) * 0.1,
+                },
+
+            ];
+
+            this.setState((prevState, props) => {
+                return {
+                    list: temp,
+                    name:''
+                }
+            });
+
+            alert('1b')
+        }
+
+        else {
+            const temp = [
+
+                {
+                    name: 'number',
+                    value: 0
+                },
+
+            ];
+
+            this.setState((prevState, props) => {
+                return {
+                    list: temp,
+                    name:''
+                }
+            });
+            alert('1c')
+        }
     }
 
     render() {
@@ -256,7 +336,7 @@ class Content extends Component {
                 </div>
                 <div>
                     <Button name="0" onClick={this.handleOnClick}  />
-                    <Button name="." onClick={this.handleOnClick} />
+                    <Button name="." onClickFloat={this.handleOnClickFloat} />
                     <Button name="=" onClick={this.handleOnClick}  />
                 </div>
             </React.Fragment>
