@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from "./Button";
 import Result from "./Result";
-import display from "../logic/display";
 import {returnNamebtn,isOperator} from "../logic/calc";
 
 class Content extends Component {
@@ -24,9 +23,6 @@ class Content extends Component {
     }
 
     addbtn2List = (name) => {
-
-
-
 
         if (this.state.list.length > 0) {
             if ((this.state.list[this.state.list.length - 1].name === 'operator')) { // last of elm list = operator
@@ -113,7 +109,6 @@ class Content extends Component {
                                 this.setState((prevState, props) => {
                                     return {
                                         list: temp
-
                                     }
 
                                 });
@@ -302,6 +297,14 @@ class Content extends Component {
         }
     }
 
+    onClickAC = () => {
+        this.setState({
+            name:'',
+            result: 0,
+            list: []
+        })
+    }
+
     render() {
         console.log(this.state.result)
 
@@ -311,7 +314,7 @@ class Content extends Component {
                         handleResult = {this.handleUpdateResult}/>
 
                 <div>
-                    <Button name="AC" onClick={this.handleOnClick} />
+                    <Button name="AC" onClickAC={this.onClickAC} />
                     <Button name="+/-" onClick={this.handleOnClick} />
                     <Button name="%" onClick={this.handleOnClick} />
                     <Button name="÷" onClick={this.handleOnClick}  />

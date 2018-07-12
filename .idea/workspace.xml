@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c340f3b0-7c90-47a8-ad6c-71493e088edd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content.js" afterDir="false" />
     </list>
@@ -17,14 +16,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6557162">
+    <splitter split-orientation="horizontal" split-proportion="0.48357424">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Content.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Content.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="591">
-                  <caret line="118" column="35" lean-forward="true" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+                <state relative-caret-position="300">
+                  <caret line="304" column="10" lean-forward="true" selection-start-line="304" selection-start-column="10" selection-end-line="304" selection-end-column="10" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -89,8 +88,8 @@
           <file leaf-file-name="Button.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Button.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+                <state relative-caret-position="234">
+                  <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -143,8 +142,8 @@
         <option value="$PROJECT_DIR$/src/logic/display.js" />
         <option value="$PROJECT_DIR$/src/components/Result.js" />
         <option value="$PROJECT_DIR$/src/logic/calc.js" />
-        <option value="$PROJECT_DIR$/src/components/Button.js" />
         <option value="$PROJECT_DIR$/src/components/Content.js" />
+        <option value="$PROJECT_DIR$/src/components/Button.js" />
       </list>
     </option>
   </component>
@@ -247,12 +246,12 @@
       <workItem from="1531144840698" duration="784000" />
       <workItem from="1531216959119" duration="12804000" />
       <workItem from="1531256135681" duration="22579000" />
-      <workItem from="1531358004862" duration="11598000" />
+      <workItem from="1531358004862" duration="12279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81427000" />
+    <option name="totallyTimeSpent" value="82108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
@@ -636,8 +635,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/calc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="203" selection-start-line="24" selection-start-column="203" selection-end-line="24" selection-end-column="203" />
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -651,20 +650,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Button.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Content.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="300">
+          <caret line="304" column="10" lean-forward="true" selection-start-line="304" selection-start-column="10" selection-end-line="304" selection-end-column="10" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Content.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="118" column="35" lean-forward="true" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+        <state relative-caret-position="234">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
